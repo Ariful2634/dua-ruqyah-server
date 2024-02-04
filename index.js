@@ -8,7 +8,7 @@ const port = process.env.PORT || 3001;
 app.use(cors())
 app.use(express.json())
 
-const dbPath = process.env.DB_PATH || './db/dua_main.sqlite';
+const dbPath =  './db/dua_main.sqlite';
 const db = new sqlite3.Database(dbPath);
 
 app.get('/getCategory', (req, res) => {
