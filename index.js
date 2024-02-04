@@ -8,7 +8,8 @@ const port = 3001;
 app.use(cors())
 app.use(express.json())
 
-const db = new sqlite3.Database('./db/dua_main.sqlite');
+const dbPath = process.env.DB_PATH || './db/dua_main.sqlite';
+const db = new sqlite3.Database(dbPath);
 
 app.get('/getCategory', (req, res) => {
   db.all('SELECT * FROM category', (err, rows) => {
